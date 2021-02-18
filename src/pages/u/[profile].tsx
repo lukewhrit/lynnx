@@ -53,9 +53,9 @@ export default function Profile () {
             </div>
           </div>
           <div className={tw`gap-2`}>
-            {testData.profile.accounts.map(({ platform }) => {
+            {testData.profile.accounts.map(({ platform }, i) => {
               return (
-                <div className={tw`mt-2`}>
+                <div className={tw`mt-2`} key={i}>
                   <Button
                     name={capitalize(platform)}
                     color={platforms[platform].color}

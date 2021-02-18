@@ -32,7 +32,7 @@ export default function Footer(): JSX.Element {
           </section>
           <section className={tw`flex gap-2 justify-end`}>
               {links.map(({ label, href }) => (
-                <>
+                <div key={label}>
                   <Link href={href}>
                     <a className={tw`
                       hover:text-emerald-500
@@ -44,7 +44,7 @@ export default function Footer(): JSX.Element {
                     </a>
                   </Link>
                   <span className={tw`select-none last:hidden`}>·</span>
-                </>
+                </div>
               ))}
           </section>
         </div>

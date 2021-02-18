@@ -14,7 +14,9 @@ export default function Layout({ children }: {
   return (
     <div className={tw`container mx-auto py-8 px-4`}>
       <header>
-        <Navbar />
+        <Navbar links={[
+          { href: '/', label: 'Home', isLocal: true }
+        ]} />
       </header>
       <main>
         {children}
