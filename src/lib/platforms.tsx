@@ -4,9 +4,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-import FilmIcon from '../components/icons/film'
-import GithubIcon from '../components/icons/github'
-import TwitterIcon from '../components/icons/twitter'
+import FilmIcon from '../components/icons/film';
+import GithubIcon from '../components/icons/github';
+import TwitterIcon from '../components/icons/twitter';
 
 type Platforms = {
   [key: string]: {
@@ -14,22 +14,24 @@ type Platforms = {
     url: (account: string) => string;
     color: string[];
   };
-}
+};
 
-export const platforms: Platforms = {
+const platforms: Platforms = {
   twitter: {
     icon: <TwitterIcon />,
     url: (account) => `https://twitter.com/${account}`,
-    color: ['bg-blue-500', 'bg-blue-400']
+    color: ['bg-blue-500', 'bg-blue-400'],
   },
   letterboxd: {
     icon: <FilmIcon />,
     url: (account) => `https://letterboxd.com/${account}`,
-    color: ['bg-gray-600', 'bg-gray-500']
+    color: ['bg-gray-600', 'bg-gray-500'],
   },
   github: {
     icon: <GithubIcon />,
     url: (account) => `https://github.com/${account}`,
-    color: ['bg-gray-800', 'bg-gray-700']
-  }
-}
+    color: ['bg-gray-800', 'bg-gray-700'],
+  },
+};
+
+export default platforms;

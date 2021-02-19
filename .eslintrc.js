@@ -22,7 +22,9 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    'react/jsx-fragments': 'off'
+    'react/jsx-fragments': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/anchor-is-valid': 'off'
   },
   globals: {
     React: 'writable'

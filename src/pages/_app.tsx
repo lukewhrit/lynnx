@@ -4,18 +4,18 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { AppProps } from 'next/app'
-import Head from 'next/head'
-import { setup } from 'twind'
-import * as colors from 'twind/colors'
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import { setup } from 'twind';
+import * as colors from 'twind/colors';
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   setup({
     darkMode: 'media',
     theme: {
-      colors
-    }
-  })
+      colors,
+    },
+  });
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
-        <title>Next.js PWA Example</title>
+        <title>Lynnx</title>
 
         <link rel="manifest" href="/manifest.json" />
         <link

@@ -4,12 +4,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-import { tw } from 'twind'
+import { tw } from 'twind';
 
-export default function Button ({ name, color, icon }: {
+export default function Button({ name, color }: {
   name: string;
   color: string[];
-  icon: JSX.Element;
 }): JSX.Element {
   return (
     <div className={tw`
@@ -19,10 +18,11 @@ export default function Button ({ name, color, icon }: {
       px-2 py-1
       rounded
       cursor-pointer
-      hover:${color[1]}`}>
+      hover:${color[1]}`}
+    >
       <div className={tw`flex text-white justify-center items-center gap-2`}>
         <span>{name}</span>
       </div>
     </div>
-  )
+  );
 }

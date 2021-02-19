@@ -4,10 +4,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-import { tw } from 'twind'
-import Link from 'next/link'
+import { tw } from 'twind';
+import Link from 'next/link';
 
-export default function Navbar ({ links }: {
+export default function Navbar({ links }: {
   links: {
     href: string;
     label: string;
@@ -23,34 +23,32 @@ export default function Navbar ({ links }: {
         Lynnx
       </span>
       <ul className={tw`flex gap-2.5`}>
-        {links.map(({ href, label, isLocal }) => {
-          return (
-            <li
-              className={tw`mr-3 font-semibold`}
-              key={label}
-            >
-              {isLocal
-                ? (
-                    <Link href={href}>
-                      <a className={tw`text-emerald-500 hover:border-b hover:border-emerald-500 transition`}>
-                        {label}
-                      </a>
-                    </Link>
-                  )
-                : (
-                    <a
-                      className={tw`text-emerald-500 hover:border-b hover:border-emerald-500 transition`}
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {label}
-                    </a>
-                  )}
-            </li>
-          )
-        })}
+        {links.map(({ href, label, isLocal }) => (
+          <li
+            className={tw`mr-3 font-semibold`}
+            key={label}
+          >
+            {isLocal
+              ? (
+                <Link href={href}>
+                  <a className={tw`text-emerald-500 hover:border-b hover:border-emerald-500 transition`}>
+                    {label}
+                  </a>
+                </Link>
+              )
+              : (
+                <a
+                  className={tw`text-emerald-500 hover:border-b hover:border-emerald-500 transition`}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {label}
+                </a>
+              )}
+          </li>
+        ))}
       </ul>
     </nav>
-  )
+  );
 }

@@ -4,9 +4,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-import Footer from './footer'
-import Navbar from './navbar'
-import { tw } from 'twind'
+import { tw } from 'twind';
+import Footer from './footer';
+import Navbar from './navbar';
 
 export default function Layout({ children }: {
   children: React.ReactNode
@@ -15,13 +15,14 @@ export default function Layout({ children }: {
     <div className={tw`container mx-auto py-8 px-4`}>
       <header>
         <Navbar links={[
-          { href: '/', label: 'Home', isLocal: true }
-        ]} />
+          { href: '/', label: 'Home', isLocal: true },
+        ]}
+        />
       </header>
       <main>
         {children}
       </main>
       <Footer />
     </div>
-  )
+  );
 }

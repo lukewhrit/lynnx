@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['']
+    domains: ['pbs.twimg.com']
   }
 }

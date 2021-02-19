@@ -4,8 +4,45 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { NextApiRequest, NextApiResponse } from 'next'
+import { Prisma } from '@prisma/client';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import prisma from '../../lib/prisma';
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ name: 'John Doe' })
+interface Data {
+  id: string;
+  email: string;
+  name: string;
+  joinedOn: Date;
+  nickname: string;
+  about: string;
+  accounts: Prisma.JsonValue;
+  password: string;
 }
+
+export default async (req: NextApiRequest, res: NextApiResponse<Data>): Promise<void> => {
+  if (req.method === 'GET') {
+    // await prisma.user.update({
+    //   where: {
+    //     email: 'lukewhrit@pm.me',
+    //   },
+    //   data: {
+    //     accounts: [
+    //       {
+    //         platform: 'Twitter',
+    //         account: 'luke_324',
+    //       },
+    //     ],
+    //   },
+    // });
+
+    const user = await prisma.user.findFirst({
+      where: {
+        email: 'lukewhrit@pm.me',
+      },
+    });
+
+    res.status(200).json({ ...user });
+  } else {
+    res.status(400);
+  }
+};

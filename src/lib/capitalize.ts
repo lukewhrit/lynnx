@@ -4,6 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-export const capitalize = (s: string) => {
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
+const capitalize = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
+
+export default capitalize;

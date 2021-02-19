@@ -4,14 +4,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import Layout from '../components/layout'
+import Layout from '../components/layout';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <Layout>
       <h1>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
+        Welcome to
+        {' '}
+        <a href="https://nextjs.org">Next.js!</a>
       </h1>
     </Layout>
-  )
+  );
 }

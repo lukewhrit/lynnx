@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-export default function FilmIcon (): JSX.Element {
+export default function FilmIcon(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,5 +26,5 @@ export default function FilmIcon (): JSX.Element {
       <line x1="17" y1="17" x2="22" y2="17" />
       <line x1="17" y1="7" x2="22" y2="7" />
     </svg>
-  )
+  );
 }
