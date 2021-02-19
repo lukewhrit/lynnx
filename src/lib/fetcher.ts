@@ -6,7 +6,7 @@
 
 import fetch from 'isomorphic-unfetch';
 
-export default async function fetcher<JSON = any>(
+export default async function fetcher<JSON>(
   input: RequestInfo,
   init?: RequestInit,
 ): Promise<JSON> {
