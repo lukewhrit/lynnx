@@ -7,6 +7,8 @@
 import { tw } from 'twind';
 import Image from 'next/image';
 import useSWR from 'swr';
+import { useRouter } from 'next/router';
+import type { GetServerSideProps } from 'next';
 import Layout from '../../components/layout';
 import platforms from '../../lib/platforms';
 import Button from '../../components/button';
@@ -18,13 +20,15 @@ interface Props {
   user: User;
 }
 
-export async function getServerSideProps(): Promise<{ props: Props }> {
-  const user = await fetcher<User>('http://localhost:3000/api/hello');
+export const getServerSideProps: GetServerSideProps<{ user: User }> = async ({ req }) => {
+  const user = await fetcher<User>(`http://${req.headers.host}/api/hello`);
   return { props: { user } };
-}
+};
 
 export default function Profile({ user }: Props): JSX.Element {
-  const { data, error } = useSWR<User>('http://localhost:3000/api/hello', fetcher, {
+  const { basePath } = useRouter();
+
+  const { data, error } = useSWR<User>(`${basePath}/api/hello`, fetcher, {
     initialData: user,
   });
 
