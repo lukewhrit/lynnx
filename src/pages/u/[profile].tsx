@@ -34,38 +34,43 @@ export default function Profile({ user }: Props): JSX.Element {
   return (
     <Layout>
       <div className={tw`flex justify-center items-center py-6`}>
-        <div className={tw`px-6 py-4 max-w-xl`}>
-          <div className={tw`flex gap-4 mb-4`}>
+        <div className={tw`bg-gray-50 rounded shadow`}>
+          <div className={tw`flex px-6 py-4 gap-4 rounded-t bg-gradient-to-r from-green-300 to-emerald-400`}>
+            <Image
+              src="https://pbs.twimg.com/profile_images/1332530978183634946/cpemve9y_400x400.jpg"
+              width={72}
+              height={72}
+              className={tw`rounded-full w-8`}
+            />
             <div>
-              <Image
-                src="https://pbs.twimg.com/profile_images/1332530978183634946/cpemve9y_400x400.jpg"
-                width={180}
-                height={180}
-                className={tw`rounded-full`}
-              />
-            </div>
-            <div>
-              <p className={tw`font-semibold text-2xl`}>
+              <h1 className={tw`font-semibold text-2xl`}>
                 {data.nickname}
-              </p>
-              <span className={tw`text-gray-600 text-sm`}>
+              </h1>
+              <span className={tw`text-gray-700 text-sm`}>
                 <code>
                   lynnx.me/u/
                   {data.name}
                 </code>
               </span>
-              <p>{data.about}</p>
             </div>
           </div>
-          <div className={tw`gap-2`}>
-            {data.accounts.map(({ platform }) => (
-              <div className={tw`mt-2`} key={platform}>
-                <Button
-                  name={capitalize(platform)}
-                  color={platforms[platform.toLowerCase()].color}
-                />
-              </div>
-            ))}
+          <div className={tw`px-6 py-4`}>
+            <p>{data.about}</p>
+            <div className={tw`gap-2`}>
+              {data.accounts.map(({ platform, account }) => {
+                const { color, url } = platforms[platform.toLowerCase()];
+
+                return (
+                  <div className={tw`mt-2`} key={platform}>
+                    <Button
+                      name={capitalize(platform)}
+                      color={color}
+                      href={url(account)}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

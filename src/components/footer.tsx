@@ -12,6 +12,10 @@ const links: {
   href: string;
 }[] = [
   {
+    label: 'About',
+    href: '/about',
+  },
+  {
     label: 'Terms',
     href: '/tos',
   },
@@ -28,15 +32,18 @@ export default function Footer(): JSX.Element {
       <footer className={tw`text-gray-500 font-medium mt-5 font-medium`}>
         <div className={tw`grid grid-rows-2 md:(grid-rows-1 grid-cols-2)`}>
           <section>
-            Built in New Jersey, USA on Leni Lenape land. Copyright ©
-            {' '}
-            {new Date().getFullYear()}
-            {' '}
-            Luke W.
+            Built in New Jersey, USA on the land of the Lenape people.
+            <p>
+              Copyright ©
+              {' '}
+              {new Date().getFullYear()}
+              {' '}
+              Luke W.
+            </p>
           </section>
           <section className={tw`flex gap-2 justify-end`}>
             {links.map(({ label, href }) => (
-              <div key={label}>
+              <div key={label} className={tw`gap-2`}>
                 <Link href={href}>
                   <a
                     className={tw`
@@ -49,7 +56,6 @@ export default function Footer(): JSX.Element {
                     {label}
                   </a>
                 </Link>
-                <span className={tw`select-none last:hidden`}>·</span>
               </div>
             ))}
           </section>

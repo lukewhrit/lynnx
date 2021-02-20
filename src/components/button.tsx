@@ -6,9 +6,10 @@
 
 import { tw } from 'twind';
 
-export default function Button({ name, color }: {
+export default function Button({ name, color, href }: {
   name: string;
   color: string[];
+  href: string;
 }): JSX.Element {
   return (
     <div className={tw`
@@ -20,9 +21,14 @@ export default function Button({ name, color }: {
       cursor-pointer
       hover:${color[1]}`}
     >
-      <div className={tw`flex text-white justify-center items-center gap-2`}>
-        <span>{name}</span>
-      </div>
+      <a
+        href={href}
+        className={tw`flex text-white justify-center items-center gap-2`}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {name}
+      </a>
     </div>
   );
 }
