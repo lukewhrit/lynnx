@@ -17,7 +17,7 @@ const links: {
   },
   {
     label: 'Terms',
-    href: '/tos',
+    href: '/terms',
   },
   {
     label: 'Privacy',
