@@ -21,20 +21,6 @@ interface Data {
 
 export default async (req: NextApiRequest, res: NextApiResponse<Data>): Promise<void> => {
   if (req.method === 'GET') {
-    // await prisma.user.update({
-    //   where: {
-    //     email: 'lukewhrit@pm.me',
-    //   },
-    //   data: {
-    //     accounts: [
-    //       {
-    //         platform: 'Twitter',
-    //         account: 'luke_324',
-    //       },
-    //     ],
-    //   },
-    // });
-
     const user = await prisma.user.findFirst({
       where: {
         email: 'lukewhrit@pm.me',
