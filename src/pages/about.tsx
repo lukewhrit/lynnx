@@ -1,1 +1,3 @@
-export default function About(): void {}
+export default function About(): JSX.Element {
+  return <></>;
+}

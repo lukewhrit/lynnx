@@ -1,1 +1,3 @@
-export default function Privacy(): void {}
+export default function Privacy(): JSX.Element {
+  return <></>;
+}

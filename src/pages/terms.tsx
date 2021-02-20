@@ -1,1 +1,3 @@
-export default function Terms(): void {}
+export default function Terms(): JSX.Element {
+  return <></>;
+}
