@@ -12,7 +12,6 @@ import type { GetServerSideProps } from 'next';
 import Layout from '../../components/layout';
 import platforms from '../../lib/platforms';
 import Icon from '../../components/icon';
-import capitalize from '../../lib/capitalize';
 import fetcher from '../../lib/fetcher';
 import { User } from '../../lib/domain';
 
