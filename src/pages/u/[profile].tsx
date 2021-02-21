@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import type { GetServerSideProps } from 'next';
 import Layout from '../../components/layout';
 import platforms from '../../lib/platforms';
-import Button from '../../components/button';
+import Icon from '../../components/icon';
 import capitalize from '../../lib/capitalize';
 import fetcher from '../../lib/fetcher';
 import { User } from '../../lib/domain';
@@ -38,7 +38,7 @@ export default function Profile({ user }: Props): JSX.Element {
   return (
     <Layout>
       <div className={tw`flex justify-center items-center py-6`}>
-        <div className={tw`bg-gray-50 rounded shadow`}>
+        <div className={tw`rounded shadow max-w-lg`}>
           <div className={tw`flex px-6 py-4 gap-4 rounded-t bg-gradient-to-r from-green-300 to-emerald-400`}>
             <Image
               src="https://pbs.twimg.com/profile_images/1332530978183634946/cpemve9y_400x400.jpg"
@@ -60,15 +60,14 @@ export default function Profile({ user }: Props): JSX.Element {
           </div>
           <div className={tw`px-6 py-4`}>
             <p>{data.about}</p>
-            <div className={tw`gap-2`}>
+            <div className={tw`flex`}>
               {data.accounts.map(({ platform, account }) => {
-                const { color, url } = platforms[platform.toLowerCase()];
+                const { icon, url } = platforms[platform.toLowerCase()];
 
                 return (
                   <div className={tw`mt-2`} key={platform}>
-                    <Button
-                      name={capitalize(platform)}
-                      color={color}
+                    <Icon
+                      icon={icon}
                       href={url(account)}
                     />
                   </div>

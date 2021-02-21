@@ -6,28 +6,27 @@
 
 import { tw } from 'twind';
 
-export default function Button({ name, color, href }: {
-  name: string;
-  color: string[];
+export default function Icon({ icon, href }: {
+  icon: JSX.Element;
   href: string;
 }): JSX.Element {
   return (
     <div className={tw`
-      ${color[0]}
+      text-gray-700
       transition
       ease-in-out
       px-2 py-1
       rounded
       cursor-pointer
-      hover:${color[1]}`}
+      hover:text-gray-900`}
     >
       <a
         href={href}
-        className={tw`flex text-white justify-center items-center gap-2`}
+        className={tw`flex justify-center items-center gap-2`}
         rel="noreferrer"
         target="_blank"
       >
-        {name}
+        {icon}
       </a>
     </div>
   );

@@ -4,53 +4,57 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-type Platforms = {
+import TwitterIcon from '../components/icons/twitter';
+import FilmIcon from '../components/icons/film';
+import GithubIcon from '../components/icons/github';
+
+interface Platforms {
   [key: string]: {
     url: (account: string) => string;
-    color: string[];
+    icon: JSX.Element;
   };
-};
+}
 
 const platforms: Platforms = {
   twitter: {
     url: (account) => `https://twitter.com/${account}`,
-    color: ['bg-blue-400', 'bg-blue-500'],
+    icon: <TwitterIcon />,
   },
   letterboxd: {
     url: (account) => `https://letterboxd.com/${account}`,
-    color: ['bg-green-600', 'bg-green-700'],
+    icon: <FilmIcon />,
   },
   github: {
     url: (account) => `https://github.com/${account}`,
-    color: ['bg-gray-800', 'bg-gray-900'],
+    icon: <GithubIcon />,
   },
   facebook: {
     url: (account) => `https://facebook.com/${account}`,
-    color: ['bg-blue-800', 'bg-blue-900'],
+    icon: <></>,
   },
   youtube: {
     url: (account) => `https://youtube.com/${account}`,
-    color: ['bg-red-500', 'bg-red-600'],
+    icon: <></>,
   },
   instagram: {
     url: (account) => `https://instagram.com/${account}`,
-    color: ['bg-amber-400', 'bg-amber-500'],
+    icon: <></>,
   },
   twitch: {
     url: (account) => `https://twitch.tv/${account}`,
-    color: ['bg-purple-600', 'bg-purple-700'],
+    icon: <></>,
   },
   reddit: {
     url: (account) => `https://reddit.com/u/${account}`,
-    color: ['bg-orange-600', 'bg-orange-700'],
+    icon: <></>,
   },
   tumblr: {
     url: (account) => `https://${account}.tumblr.com`,
-    color: ['bg-gray-600', 'bg-gray-700'],
+    icon: <></>,
   },
   tiktok: {
     url: (account) => `https://tiktok.com/@${account}`,
-    color: ['bg-rose-500', 'bg-rose-600'],
+    icon: <></>,
   },
 };
 
