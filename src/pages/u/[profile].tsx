@@ -20,14 +20,14 @@ interface Props {
 }
 
 export const getServerSideProps: GetServerSideProps<{ user: User }> = async ({ req }) => {
-  const user = await fetcher<User>(`http://${req.headers.host}/api/hello`);
+  const user = await fetcher<User>(`http://${req.headers.host}/api/user/me`);
   return { props: { user } };
 };
 
 export default function Profile({ user }: Props): JSX.Element {
   const { basePath } = useRouter();
 
-  const { data, error } = useSWR<User>(`${basePath}/api/hello`, fetcher, {
+  const { data, error } = useSWR<User>(`${basePath}/api/user/me`, fetcher, {
     initialData: user,
   });
 
