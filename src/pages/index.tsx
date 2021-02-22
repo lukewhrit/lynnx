@@ -4,16 +4,21 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+import CallToAction from '../components/callToAction';
 import Layout from '../components/layout';
 
 export default function Home(): JSX.Element {
   return (
     <Layout>
-      <h1>
-        Welcome to
-        {' '}
-        <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+      <section id="hero">
+        {/* Hero (Title, Tagline, Get Started button) */}
+      </section>
+      <section id="features">
+        {/* Features Section (Three) / Why Lynnx? */}
+      </section>
+      <section id="cta">
+        <CallToAction />
+      </section>
     </Layout>
   );
 }

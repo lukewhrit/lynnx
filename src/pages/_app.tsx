@@ -13,7 +13,17 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
   setup({
     darkMode: 'media',
     theme: {
-      colors,
+      extend: {
+        colors,
+        fontSize: {
+          '4.5xl': ['2.45rem', {
+            lineHeight: '3rem',
+          }],
+          '1.5xl': ['1.35rem', {
+            lineHeight: '2rem',
+          }],
+        },
+      },
     },
   });
 

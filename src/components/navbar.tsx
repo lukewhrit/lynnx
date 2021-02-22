@@ -18,14 +18,14 @@ export default function Navbar({ links }: {
     <nav className={tw`flex justify-between items-center mb-1`}>
       <span
         id="title"
-        className={tw`mr-3 inline-block font-bold py-1 text-gray-900`}
+        className={tw`inline-block font-bold py-1 text-gray-900`}
       >
         Lynnx
       </span>
-      <ul className={tw`flex gap-2.5`}>
+      <ul className={tw`flex gap-3`}>
         {links.map(({ href, label, isLocal }) => (
           <li
-            className={tw`mr-3 font-semibold`}
+            className={tw`font-semibold`}
             key={label}
           >
             {isLocal

@@ -16,6 +16,7 @@ export default function Layout({ children }: {
       <header>
         <Navbar links={[
           { href: '/', label: 'Home', isLocal: true },
+          { href: '/about', label: 'About', isLocal: true },
         ]}
         />
       </header>
