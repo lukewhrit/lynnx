@@ -12,10 +12,10 @@ export default function CallToAction(): JSX.Element {
       <span className={tw`block mb-1 text-4.5xl font-black`}>
         Ready to dive in?
       </span>
-      <span className={tw`block mb-3 text-1.5xl font-semibold text-gray-600 `}>
+      <span className={tw`block mb-3 text-1.5xl text-gray-600`}>
         Create your profile today.
       </span>
-      <div className={tw`flex gap-2 justify-center items-center`}>
+      <div className={tw`flex gap-4 justify-center items-center`}>
         <a
           href="/"
           className={tw`
@@ -35,13 +35,12 @@ export default function CallToAction(): JSX.Element {
           href="/"
           className={tw`
             inline-block
-            bg-gray-400
-            text-white
-            py-1.5 px-4
-            rounded
-            hover:bg-gray-500
+            text-black
+            hover:text-emerald-500
+            border-b-0
+            hover:border-emerald-500
+            hover:border-b
             transition
-            shadow
           `}
         >
           Sign In
