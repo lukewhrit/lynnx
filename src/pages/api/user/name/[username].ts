@@ -5,10 +5,10 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '../../../lib/prisma';
+import prisma from '../../../../lib/prisma';
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  const { query: { id: userID } } = req;
+  const { query: { id: username } } = req;
 
   switch (req.method) {
     case 'GET': {
@@ -16,7 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         id, email, name, joinedOn, nickname, about, accounts,
       } = await prisma.user.findFirst({
         where: {
-          id: userID.toString(),
+          name: username.toString(),
         },
       });
 
@@ -25,12 +25,6 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       });
       break;
     }
-    case 'PUT':
-      res.status(501).end();
-      break;
-    case 'DELETE':
-      res.status(501).end();
-      break;
     default:
       res.status(400).end();
       break;
