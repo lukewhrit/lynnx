@@ -26,7 +26,6 @@ export default function CallToAction(): JSX.Element {
             text-white
             hover:bg-emerald-600
             transition
-            shadow
           `}
         >
           Register

@@ -18,7 +18,7 @@ export default function Icon({ icon, href }: {
       px-2 py-1
       rounded
       cursor-pointer
-      hover:text-gray-900`}
+      hover:text-emerald-500`}
     >
       <a
         href={href}
