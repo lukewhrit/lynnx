@@ -13,67 +13,77 @@ import Layout from '../../components/layout';
 import platforms from '../../lib/platforms';
 import Icon from '../../components/icon';
 import fetcher from '../../lib/fetcher';
-import { User } from '../../lib/domain';
+import { Response, User } from '../../lib/domain';
 
-interface Props {
-  user: User;
-}
-
-export const getServerSideProps: GetServerSideProps<{ user: User }> = async ({ req }) => {
-  const user = await fetcher<User>(`http://${req.headers.host}/api/user/me`);
+export const getServerSideProps: GetServerSideProps<{
+  user: Response<User>
+}> = async ({ req, params }) => {
+  const user = await fetcher<Response<User>>(`http://${req.headers.host}/api/user/name/${params.profile}`);
   return { props: { user } };
 };
 
-export default function Profile({ user }: Props): JSX.Element {
+export default function Profile({ user }: { user: Response<User> }): JSX.Element {
   const { basePath } = useRouter();
 
-  const { data, error } = useSWR<User>(`${basePath}/api/user/me`, fetcher, {
+  const { data, error } = useSWR<Response<User>>(`${basePath}/api/user/name/${user.payload.name}`, fetcher, {
     initialData: user,
   });
 
   if (error) return <div>failed to load...</div>;
   if (!data) return <div>loading...</div>;
+  if (data.type === 'error') {
+    return <div>{data.payload.message}</div>;
+  }
 
   return (
     <Layout>
-      <div className={tw`flex justify-center items-center py-6`}>
-        <div className={tw`rounded shadow max-w-lg`}>
-          <div className={tw`flex px-6 py-4 gap-4 rounded-t bg-gradient-to-r from-green-300 to-emerald-400`}>
-            <Image
-              src="https://pbs.twimg.com/profile_images/1332530978183634946/cpemve9y_400x400.jpg"
-              width={72}
-              height={72}
-              className={tw`rounded-full w-8`}
-            />
+      <div className={tw`py-6`}>
+        <Image
+          src="https://pbs.twimg.com/profile_banners/1215546417936314369/1607498953/1500x500"
+          layout="responsive"
+          width={1300}
+          height={400}
+          className={tw`rounded-md`}
+        />
+        <div className={tw`flex justify-center sm:pl-8 sm:justify-left`}>
+          <section className={tw`relative bottom-8 max-w-xs md:max-w-lg`}>
+            <div className={tw`flex gap-4 mb-3 bg-black py-2.5 px-3 rounded shadow items-center`}>
+              <Image
+                src="https://pbs.twimg.com/profile_images/1332530978183634946/cpemve9y_400x400.jpg"
+                width={75}
+                height={75}
+                className={tw`rounded-full`}
+              />
+              <div>
+                <h1 className={tw`text-white font-semibold text-xl md:text-2xl`}>
+                  {data.payload.nickname}
+                </h1>
+                <span className={tw`text-gray-200 text-sm`}>
+                  <code>
+                    lynnx.me/u/
+                    {data.payload.name}
+                  </code>
+                </span>
+              </div>
+            </div>
             <div>
-              <h1 className={tw`font-semibold text-2xl`}>
-                {data.nickname}
-              </h1>
-              <span className={tw`text-gray-700 text-sm`}>
-                <code>
-                  lynnx.me/u/
-                  {data.name}
-                </code>
-              </span>
-            </div>
-          </div>
-          <div className={tw`px-6 py-4`}>
-            <p>{data.about}</p>
-            <div className={tw`flex`}>
-              {data.accounts.map(({ platform, account }) => {
-                const { icon, url } = platforms[platform.toLowerCase()];
+              <p>{data.payload.about}</p>
+              <div className={tw`flex`}>
+                {data.payload.accounts.map(({ platform, account }) => {
+                  const { icon, url } = platforms[platform.toLowerCase()];
 
-                return (
-                  <div className={tw`mt-2`} key={platform}>
-                    <Icon
-                      icon={icon}
-                      href={url(account)}
-                    />
-                  </div>
-                );
-              })}
+                  return (
+                    <div className={tw`mt-2`} key={platform}>
+                      <Icon
+                        icon={icon}
+                        href={url(account)}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </Layout>

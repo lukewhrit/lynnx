@@ -4,6 +4,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+export interface Error {
+  message: string;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -16,4 +20,11 @@ export interface User {
     platform: string;
   }[];
   password: string;
+  // Needs better solution
+  message: string;
+}
+
+export interface Response<T> {
+  type: 'error' | 'user';
+  payload: T;
 }

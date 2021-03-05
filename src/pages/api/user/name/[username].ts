@@ -8,21 +8,38 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  const { query: { id: username } } = req;
+  const { query: { username } } = req;
 
   switch (req.method) {
     case 'GET': {
-      const {
-        id, email, name, joinedOn, nickname, about, accounts,
-      } = await prisma.user.findFirst({
+      const user = await prisma.user.findFirst({
         where: {
-          name: username.toString(),
+          name: username as string,
         },
       });
 
-      res.status(200).json({
-        id, email, name, joinedOn, nickname, about, accounts,
-      });
+      if (user !== null) {
+        res.status(200).json({
+          type: 'user',
+          payload: {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            joinedOn: user.joinedOn,
+            nickname: user.nickname,
+            about: user.about,
+            accounts: user.accounts,
+          },
+        });
+      } else {
+        res.status(404).json({
+          type: 'error',
+          payload: {
+            message: 'User was not found.',
+          },
+        });
+      }
+
       break;
     }
     default:
