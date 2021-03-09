@@ -18,6 +18,9 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         where: {
           id: userID.toString(),
         },
+        include: {
+          posts: true,
+        },
       });
 
       res.status(200).json({

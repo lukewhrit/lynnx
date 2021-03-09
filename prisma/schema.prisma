@@ -16,4 +16,14 @@ model User {
   about    String
   accounts Json[]
   password String
+  posts    Post[]
+}
+
+model Post {
+  id         String   @id @default(uuid())
+  authorID   String
+  title      String
+  content    String
+  postedDate DateTime @default(now())
+  author     User     @relation(fields: [authorID], references: [id])
 }

@@ -25,6 +25,9 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>): Promise<
       where: {
         email: 'lukewhrit@pm.me',
       },
+      include: {
+        posts: true,
+      },
     });
 
     res.status(200).json({ ...user });

@@ -16,6 +16,9 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         where: {
           name: username as string,
         },
+        include: {
+          posts: true,
+        },
       });
 
       if (user !== null) {
