@@ -8,23 +8,30 @@ export interface Error {
   message: string;
 }
 
+export interface Post {
+  id: string;
+  authorID: string;
+  title: string;
+  content: string;
+  postedDate: string;
+}
+
 export interface User {
   id: string;
   email: string;
   name: string;
-  joinedOn: Date;
+  joinedOn: string;
   nickname: string;
   about: string;
   accounts: {
     account: string;
     platform: string;
   }[];
+  posts: Post[];
   password: string;
-  // Needs better solution
-  message: string;
 }
 
 export interface Response<T> {
   type: 'error' | 'user';
-  payload: T;
+  payload: T & Error;
 }

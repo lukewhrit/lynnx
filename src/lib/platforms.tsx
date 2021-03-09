@@ -7,6 +7,10 @@
 import TwitterIcon from '../components/icons/twitter';
 import FilmIcon from '../components/icons/film';
 import GithubIcon from '../components/icons/github';
+import FacebookIcon from '../components/icons/facebook';
+import YouTubeIcon from '../components/icons/youtube';
+import InstagramIcon from '../components/icons/instagram';
+import TwitchIcon from '../components/icons/twitch';
 
 interface Platforms {
   [key: string]: {
@@ -30,19 +34,19 @@ const platforms: Platforms = {
   },
   facebook: {
     url: (account) => `https://facebook.com/${account}`,
-    icon: <></>,
+    icon: <FacebookIcon />,
   },
   youtube: {
     url: (account) => `https://youtube.com/${account}`,
-    icon: <></>,
+    icon: <YouTubeIcon />,
   },
   instagram: {
     url: (account) => `https://instagram.com/${account}`,
-    icon: <></>,
+    icon: <InstagramIcon />,
   },
   twitch: {
     url: (account) => `https://twitch.tv/${account}`,
-    icon: <></>,
+    icon: <TwitchIcon />,
   },
   reddit: {
     url: (account) => `https://reddit.com/u/${account}`,
