@@ -12,16 +12,11 @@ export default function Layout({ children }: {
   children: React.ReactNode
 }): JSX.Element {
   return (
-    <div className={tw`container mx-auto py-8 px-4`}>
+    <div className={tw`bg-gray-50`}>
       <header>
-        <Navbar links={[
-          { href: '/', label: 'Home', isLocal: true },
-          { href: '/help', label: 'Help Center', isLocal: true },
-          { href: '/u/lynnx', label: 'Blog', isLocal: true },
-        ]}
-        />
+        <Navbar />
       </header>
-      <main>
+      <main className={tw`mb-8`}>
         {children}
       </main>
       <Footer />

@@ -31,6 +31,10 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
             lineHeight: '2rem',
           }],
         },
+        borderWidth: {
+          2.5: '2.5px',
+          3: '3px',
+        },
       },
     },
   });

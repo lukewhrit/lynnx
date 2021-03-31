@@ -5,6 +5,7 @@
  */
 
 import { tw } from 'twind';
+import Button from './button';
 
 export default function CallToAction(): JSX.Element {
   return (
@@ -16,29 +17,16 @@ export default function CallToAction(): JSX.Element {
         Create your profile today.
       </span>
       <div className={tw`flex gap-4 justify-center items-center`}>
-        <a
-          href="/"
-          className={tw`
-            inline-block
-            bg-emerald-500
-            py-1.5 px-4
-            rounded
-            text-white
-            hover:bg-emerald-600
-            transition
-          `}
-        >
+        <Button href="/">
           Register
-        </a>
+        </Button>
         <a
           href="/"
           className={tw`
             inline-block
             text-black
-            hover:text-emerald-500
+            hover:(text-emerald-600 underline)
             border-b-0
-            hover:border-emerald-500
-            hover:border-b
             transition
           `}
         >

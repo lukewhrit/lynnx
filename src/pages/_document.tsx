@@ -7,6 +7,7 @@
 import Document, {
   DocumentContext, Html, Head, Main, NextScript, DocumentInitialProps,
 } from 'next/document';
+import { tw } from 'twind';
 
 export default class LynnxDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {

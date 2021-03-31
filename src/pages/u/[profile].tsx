@@ -37,19 +37,18 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
 
   return (
     <Layout>
-      <div className={tw`py-6`}>
+      <div>
         <Image
           src="https://pbs.twimg.com/profile_banners/1215546417936314369/1607498953/1500x500"
           layout="responsive"
           width={1300}
           height={400}
-          className={tw`rounded-md`}
         />
         <div className={tw`flex justify-center md:pl-8 md:justify-left`}>
           <section className={tw`relative mt-3 xs:bottom-8 max-w-sm md:max-w-lg`}>
-            <div className={tw`flex gap-4 mb-3 bg-black py-2.5 px-3 rounded shadow items-center`}>
+            <div className={tw`flex gap-4 mb-3 bg-black py-2.5 px-3 shadow items-center`}>
               <Image
-                src="https://pbs.twimg.com/profile_images/1332530978183634946/cpemve9y_400x400.jpg"
+                src="https://pbs.twimg.com/profile_images/1375990292961198081/3loVJ9l4_400x400.jpg"
                 width={75}
                 height={75}
                 className={tw`rounded-full`}

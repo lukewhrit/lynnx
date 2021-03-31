@@ -6,49 +6,26 @@
 
 import { tw } from 'twind';
 import Link from 'next/link';
+import Button from './button';
 
-export default function Navbar({ links }: {
-  links: {
-    href: string;
-    label: string;
-    isLocal: boolean;
-  }[]
-}): JSX.Element {
+export default function Navbar(): JSX.Element {
   return (
-    <nav className={tw`flex justify-between items-center mb-1`}>
-      <span
-        id="title"
-        className={tw`inline-block font-bold py-1 text-gray-900`}
-      >
-        Lynnx
-      </span>
-      <ul className={tw`flex gap-3`}>
-        {links.map(({ href, label, isLocal }) => (
-          <li
-            className={tw`font-semibold`}
-            key={label}
-          >
-            {isLocal
-              ? (
-                <Link href={href}>
-                  <a className={tw`text-emerald-500 hover:border-b hover:border-emerald-500 transition`}>
-                    {label}
-                  </a>
-                </Link>
-              )
-              : (
-                <a
-                  className={tw`text-emerald-500 hover:border-b hover:border-emerald-500 transition`}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {label}
-                </a>
-              )}
-          </li>
-        ))}
-      </ul>
+    <nav className={tw`grid grid-cols-2 py-3 px-6 items-center`}>
+      <div className={tw`flex items-center gap-3`}>
+        <Link href="/">
+          <a id="title" className={tw`hover:(underline text-indigo-600) transition`}>
+            Lynnx
+          </a>
+        </Link>
+      </div>
+      <div className={tw`flex justify-end gap-5 items-center`}>
+        <a className={tw`cursor-pointer transition delay-250 hover:(text-emerald-500 underline)`}>
+          Sign In
+        </a>
+        <Button href="/">
+          Register
+        </Button>
+      </div>
     </nav>
   );
 }

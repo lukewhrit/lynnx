@@ -11,22 +11,30 @@ export default function Icon({ icon, href }: {
   href: string;
 }): JSX.Element {
   return (
-    <div className={tw`
-      text-gray-700
-      transition
-      ease-in-out
-      px-2 py-1
-      rounded
-      cursor-pointer
-      hover:text-emerald-500`}
+    <div
+      className={tw`
+        bg-white
+        border-2
+        border-black
+        shadow
+        text-gray-700
+        transition
+        ease-in-out
+        px-2.5 py-1.5
+        cursor-pointer
+        hover:(
+          bg-black
+          text-blue-400
+        )
+      `}
     >
       <a
         href={href}
-        className={tw`flex justify-center items-center gap-2`}
+        className={tw`flex justify-left items-center gap-1.5`}
         rel="noreferrer"
         target="_blank"
       >
-        {icon}
+        <span className={tw`w-5`}>{icon}</span>
       </a>
     </div>
   );
