@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.17.0",
+    "classnames": "^2.2.6",
     "isomorphic-unfetch": "^3.1.0",
     "next": "^10.1.2",
     "react": "^17.0.1",
@@ -18,6 +19,7 @@
     "twind": "^0.15.1"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.28",
     "@types/react": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.15.1",

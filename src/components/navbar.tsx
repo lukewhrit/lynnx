@@ -13,7 +13,7 @@ export default function Navbar(): JSX.Element {
     <nav className={tw`grid grid-cols-2 py-3 px-6 items-center`}>
       <div className={tw`flex items-center gap-3`}>
         <Link href="/">
-          <a id="title" className={tw`hover:(underline text-indigo-600) transition`}>
+          <a id="title" className={tw`hover:(underline text-emerald-600) transition`}>
             Lynnx
           </a>
         </Link>

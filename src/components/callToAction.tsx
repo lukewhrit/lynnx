@@ -13,26 +13,23 @@ export default function CallToAction(): JSX.Element {
       <span className={tw`block mb-1 text-4.5xl font-black`}>
         Ready to dive in?
       </span>
-      <span className={tw`block mb-3 text-1.5xl text-gray-600`}>
-        Create your profile today.
-      </span>
-      <div className={tw`flex gap-4 justify-center items-center`}>
-        <Button href="/">
-          Register
-        </Button>
-        <a
-          href="/"
-          className={tw`
-            inline-block
-            text-black
-            hover:(text-emerald-600 underline)
-            border-b-0
-            transition
-          `}
-        >
-          Sign In
-        </a>
-      </div>
+      <label className={tw`inline-block`} htmlFor="username">
+        <p className={tw`mb-3 text-1.5xl text-gray-600`}>Create your profile today.</p>
+        <div className={tw`border-2 mr-3 bg-white`}>
+          <span className={tw`text-emerald-600 font-mono select-none p-2`} id="prefix">
+            lynnx.me/u/
+          </span>
+          <input
+            type="text"
+            className={tw`p-2 font-mono lowercase`}
+            id="username"
+            aria-describedby="prefix"
+          />
+        </div>
+      </label>
+      <Button href="/" layout="square">
+        ↪
+      </Button>
     </div>
   );
 }

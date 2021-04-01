@@ -24,7 +24,8 @@ module.exports = {
   rules: {
     'react/jsx-fragments': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'jsx-a11y/anchor-is-valid': 'off'
+    'jsx-a11y/anchor-is-valid': 'off',
+    'react/require-default-props': 'off',
   },
   globals: {
     React: 'writable'

@@ -48,7 +48,7 @@ export default function Home(): JSX.Element {
               Lynnx provides a single, global profile that makes all of your social media accounts,
               blog posts, and way more available behind a single URL.
             </p>
-            <Button href="/">
+            <Button href="/#cta">
               Register an Account
             </Button>
           </div>
