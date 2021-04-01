@@ -19,7 +19,7 @@ export default function Navbar(): JSX.Element {
         </Link>
       </div>
       <div className={tw`flex justify-end gap-5 items-center`}>
-        <a className={tw`cursor-pointer transition delay-250 hover:(text-emerald-500 underline)`}>
+        <a href="/" className={tw`cursor-pointer transition delay-250 hover:(text-emerald-500 underline)`}>
           Sign In
         </a>
         <Button href="/">
