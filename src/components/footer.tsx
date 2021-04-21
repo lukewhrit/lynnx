@@ -10,30 +10,37 @@ import { tw } from 'twind';
 const links: {
   label: string;
   href: string;
+  local: boolean;
 }[] = [
   {
     label: 'About',
     href: '/about',
+    local: true,
   },
   {
     label: 'Terms',
-    href: '/terms',
+    href: '/legal#terms',
+    local: true,
   },
   {
     label: 'Privacy',
-    href: '/privacy',
+    href: '/legal#privacy',
+    local: true,
   },
   {
     label: 'Help Center',
-    href: '/help',
+    href: '/faq',
+    local: true,
   },
   {
     label: 'Blog',
     href: '/blog',
+    local: true,
   },
   {
-    label: 'Placeholder',
-    href: '/',
+    label: 'Github',
+    href: 'https://github.com/lukewhrit/lynnx',
+    local: false,
   },
 ];
 

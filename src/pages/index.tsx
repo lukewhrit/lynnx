@@ -26,7 +26,7 @@ const features: {
   {
     title: '🎨 Totally Customizable.',
     blurb: `We've been committed since day one to allow our users to create a totally customizable
-    experience on their profile, you can change colors, layout, images, and more.`,
+    experience on their profile. You can change colors, layout, images, and more.`,
   },
   {
     title: '🥳 100% Free, open-source, and private.',
