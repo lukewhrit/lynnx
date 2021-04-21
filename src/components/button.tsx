@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-import { tw } from 'twind';
 import classNames from 'classnames';
 
 export default function Button({ href, children, layout = 'rectangle' }: {
@@ -15,7 +14,7 @@ export default function Button({ href, children, layout = 'rectangle' }: {
   return (
     <a
       href={href}
-      className={tw`
+      className={`
         ${classNames({
         'px-4 py-1.5': layout === 'rectangle',
         'p-2': layout === 'square',
@@ -26,11 +25,9 @@ export default function Button({ href, children, layout = 'rectangle' }: {
         delay-250
         border-emerald-500
         cursor-pointer
-        hover:(
-          animate-fade-in
-          text-white
-          bg-emerald-500
-        )
+        hover:animate-fade-in
+        hover:text-white
+        hover:bg-emerald-500
       `}
     >
       {children}

@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { tw } from 'twind';
 import Button from '../components/button';
 import CallToAction from '../components/callToAction';
 import Layout from '../components/layout';
@@ -38,13 +37,13 @@ const features: {
 export default function Home(): JSX.Element {
   return (
     <Layout>
-      <section id="hero" className={tw`bg-black mb-8`}>
-        <div className={tw`mx-auto py-16 px-4 sm:px-6 lg:px-8 justify-center flex text-center`}>
+      <section id="hero" className="bg-black mb-8">
+        <div className="mx-auto py-16 px-4 sm:px-6 lg:px-8 justify-center flex text-center">
           <div>
-            <h2 className={tw`text-4xl font-bold text-emerald-500`}>
+            <h2 className="text-4xl font-bold text-emerald-500">
               Global profiles for the social web.
             </h2>
-            <p className={tw`p-5 text-lg text-gray-300 max-w-3xl`}>
+            <p className="p-5 text-lg text-gray-300 max-w-3xl">
               Lynnx provides a single, global profile that makes all of your social media accounts,
               blog posts, and way more available behind a single URL.
             </p>
@@ -54,30 +53,23 @@ export default function Home(): JSX.Element {
           </div>
         </div>
       </section>
-      <section id="features" className={tw`justify-center flex items-center my-10`}>
-        <div className={tw`grid grid-cols-2 max-w-4xl gap-8`}>
-          <div className={tw`h-1/2`}>
-            {/* <Image
-              layout="fill"
-              src="https://i.imgur.com/Ngw7Upd.png"
-              alt=""
-              objectFit="contain"
-              sizes="120vw"
-              priority
-            /> */}
+      <section id="features" className="justify-center flex items-center my-10">
+        <div className="grid grid-cols-2 max-w-4xl gap-8">
+          <div className="h-1/2">
+            {/* @todo Use Next.js <Image> component here */}
             <img
               src="https://i.imgur.com/Ngw7Upd.png"
               alt=""
             />
           </div>
-          <div className={tw`flex items-center`}>
-            <div className={tw`block`}>
-              <p className={tw`font-bold text-4xl text-emerald-500 mb-8`}>
+          <div className="flex items-center">
+            <div className="block">
+              <p className="font-bold text-4xl text-emerald-500 mb-8">
                 Why Lynnx?
               </p>
               {features.map(({ title, blurb }) => (
-                <div key={title} className={tw`mb-8`}>
-                  <span className={tw`block text-gray-900 font-semibold text-xl mb-2`}>
+                <div key={title} className="mb-8">
+                  <span className="block text-gray-900 font-semibold text-xl mb-2">
                     {title}
                   </span>
                   <p>{blurb}</p>

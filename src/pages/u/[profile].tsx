@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { tw } from 'twind';
 import Image from 'next/image';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
@@ -44,20 +43,20 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
           width={1300}
           height={400}
         />
-        <div className={tw`flex justify-center md:pl-8 md:justify-left`}>
-          <section className={tw`relative mt-3 xs:bottom-8 max-w-sm md:max-w-lg`}>
-            <div className={tw`flex gap-4 mb-3 bg-black py-2.5 px-3 shadow items-center`}>
+        <div className="flex justify-center md:pl-8 md:justify-left">
+          <section className="relative mt-3 xs:bottom-8 max-w-sm md:max-w-lg">
+            <div className="flex gap-4 mb-3 bg-black py-2.5 px-3 shadow items-center">
               <Image
                 src="https://pbs.twimg.com/profile_images/1375990292961198081/3loVJ9l4_400x400.jpg"
                 width={75}
                 height={75}
-                className={tw`rounded-full`}
+                className="rounded-full"
               />
               <div>
-                <h1 className={tw`text-white font-semibold text-xl md:text-2xl`}>
+                <h1 className="text-white font-semibold text-xl md:text-2xl">
                   {data.payload.nickname}
                 </h1>
-                <span className={tw`text-gray-200 text-sm`}>
+                <span className="text-gray-200 text-sm">
                   <code>
                     lynnx.me/u/
                     {data.payload.name}
@@ -67,12 +66,12 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
             </div>
             <div>
               <p>{data.payload.about}</p>
-              <div className={tw`flex`}>
+              <div className="flex">
                 {data.payload.accounts.map(({ platform, account }) => {
                   const { icon, url } = platforms[platform.toLowerCase()];
 
                   return (
-                    <div className={tw`mt-2`} key={platform}>
+                    <div className="mt-2" key={platform}>
                       <Icon
                         icon={icon}
                         href={url(account)}

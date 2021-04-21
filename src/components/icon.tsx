@@ -4,15 +4,13 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-import { tw } from 'twind';
-
 export default function Icon({ icon, href }: {
   icon: JSX.Element;
   href: string;
 }): JSX.Element {
   return (
     <div
-      className={tw`
+      className="
         bg-white
         border-2
         border-black
@@ -22,19 +20,17 @@ export default function Icon({ icon, href }: {
         ease-in-out
         px-2.5 py-1.5
         cursor-pointer
-        hover:(
-          bg-black
-          text-blue-400
-        )
-      `}
+        hover:bg-black
+        hover:text-blue-400
+      "
     >
       <a
         href={href}
-        className={tw`flex justify-left items-center gap-1.5`}
+        className="flex justify-left items-center gap-1.5"
         rel="noreferrer"
         target="_blank"
       >
-        <span className={tw`w-5`}>{icon}</span>
+        <span className="w-5">{icon}</span>
       </a>
     </div>
   );
