@@ -58,8 +58,7 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
                 </h1>
                 <span className="text-gray-200 text-sm">
                   <code>
-                    lynnx.me/u/
-                    {data.payload.name}
+                    {data.payload.tagline || `lynnx.me/u/${data.payload.name}` }
                   </code>
                 </span>
               </div>

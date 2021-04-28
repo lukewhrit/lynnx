@@ -41,7 +41,7 @@ export default function Home(): JSX.Element {
         <div className="mx-auto py-16 px-4 sm:px-6 lg:px-8 justify-center flex text-center">
           <div>
             <h2 className="text-4xl font-bold text-emerald-500">
-              Global profiles for the social web.
+              Global profiles for a more social web.
             </h2>
             <p className="p-5 text-lg text-gray-300 max-w-3xl">
               Lynnx provides a single, global profile that makes all of your social media accounts,

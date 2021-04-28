@@ -9,7 +9,7 @@ import Button from './button';
 
 export default function Navbar(): JSX.Element {
   return (
-    <nav className="grid grid-cols-2 py-3 px-6 items-center">
+    <nav className="grid grid-cols-2 py-2 px-6 items-center">
       <div className="flex items-center gap-3">
         <Link href="/">
           <a
@@ -28,7 +28,7 @@ export default function Navbar(): JSX.Element {
           Sign In
         </a>
         <Button href="/">
-          Register
+          Register an Account
         </Button>
       </div>
     </nav>

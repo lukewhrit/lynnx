@@ -12,24 +12,24 @@ const links: {
   local: boolean;
 }[] = [
   {
-    label: 'About',
+    label: 'About Lynnx',
     href: '/about',
     local: true,
   },
   {
-    label: 'Terms',
+    label: 'Terms of Service',
     href: '/legal#terms',
     local: true,
   },
   {
-    label: 'Privacy',
+    label: 'Privacy Policy',
     href: '/legal#privacy',
     local: true,
   },
   {
-    label: 'Help Center',
-    href: '/faq',
-    local: true,
+    label: 'Github',
+    href: 'https://github.com/lukewhrit/lynnx',
+    local: false,
   },
   {
     label: 'Blog',
@@ -37,9 +37,9 @@ const links: {
     local: true,
   },
   {
-    label: 'Github',
-    href: 'https://github.com/lukewhrit/lynnx',
-    local: false,
+    label: 'Help Center',
+    href: '/faq',
+    local: true,
   },
 ];
 

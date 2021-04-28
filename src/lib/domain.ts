@@ -23,6 +23,7 @@ export interface User {
   joinedOn: string;
   nickname: string;
   about: string;
+  tagline: string;
   accounts: {
     account: string;
     platform: string;
