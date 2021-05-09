@@ -25,6 +25,6 @@ Any activities conducted in a accordance with this policy will be considered aut
 
 If legal action is initiated by a third-party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.
 
-## Notes
+## Attribution
 
 Language in this document was heavily inspired by, based on, and in some parts copied from the [Vercel Inc. Security Policy](https://vercel.com/security).
