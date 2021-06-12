@@ -4,6 +4,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+import { Prisma } from '@prisma/client';
+
 export interface Error {
   message: string;
 }
@@ -15,21 +17,21 @@ export interface Post {
   content: string;
   postedDate: string;
 }
-
 export interface User {
   id: string;
   email: string;
   name: string;
-  joinedOn: string;
+  joinedOn: Date | string;
   nickname: string;
   about: string;
-  tagline: string;
   accounts: {
     account: string;
     platform: string;
-  }[];
+  }[] | Prisma.JsonValue;
+  pronouns: string[];
+  location: string;
   posts: Post[];
-  password: string;
+  password?: string;
 }
 
 export interface Response<T> {

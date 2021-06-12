@@ -6,49 +6,29 @@
 
 import Link from 'next/link';
 
-const links: {
-  label: string;
-  href: string;
-  local: boolean;
-}[] = [
-  {
-    label: 'About Lynnx',
-    href: '/about',
-    local: true,
-  },
-  {
-    label: 'Terms of Service',
-    href: '/legal#terms',
-    local: true,
-  },
-  {
-    label: 'Privacy Policy',
-    href: '/legal#privacy',
-    local: true,
-  },
-  {
-    label: 'Github',
-    href: 'https://github.com/lukewhrit/lynnx',
-    local: false,
-  },
-  {
-    label: 'Blog',
-    href: '/blog',
-    local: true,
-  },
-  {
-    label: 'Help Center',
-    href: '/faq',
-    local: true,
-  },
+const links = [
+  [
+    { label: 'About Lynnx', href: '/a/about', local: true },
+    { label: 'Blog', href: '/a/blog', local: true },
+    { label: 'Help Center', href: '/a/faq', local: true },
+  ],
+  [
+    { label: 'Github', href: 'https://github.com/lukewhrit/lynnx', local: false },
+    { label: 'Our Twitter', href: 'https://twitter.com/lynnxteam', local: false },
+    { label: 'Contact', href: 'mailto:hi@lynnx.me', local: false },
+  ],
+  [
+    { label: 'Terms of Service', href: '/a/terms', local: true },
+    { label: 'Privacy Policy', href: '/a/privacy', local: true },
+  ],
 ];
 
 export default function Footer(): JSX.Element {
   return (
     <>
       <footer className="bg-black text-white font-medium px-8 py-6">
-        <section className="grid grid-cols-2 max-w-xs text-md">
-          {links.map(({ label, href }) => (
+        <section className="grid grid-cols-3 max-w-lg text-md">
+          {links.map((array) => array.map(({ label, href }) => (
             <div key={label} className="gap-2">
               <Link href={href}>
                 <a
@@ -62,10 +42,10 @@ export default function Footer(): JSX.Element {
                 </a>
               </Link>
             </div>
-          ))}
+          )))}
         </section>
         <section className="py-4 text-gray-500 text-sm">
-          Built in New Jersey, USA on the land of the Lenape people.
+          Built in New Jersey, USA.
           <p>
             Copyright ©
             {' '}

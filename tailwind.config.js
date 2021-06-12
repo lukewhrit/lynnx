@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors')
-
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -14,7 +12,7 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
-      colors,
+      colors: require('tailwindcss/colors'),
       fontSize: {
         '4.5xl': ['2.45rem', {
           lineHeight: '3rem',
@@ -27,10 +25,15 @@ module.exports = {
         2.5: '2.5px',
         3: '3px',
       },
+      height: {
+        30: '7.25rem',
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

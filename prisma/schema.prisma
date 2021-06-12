@@ -16,6 +16,8 @@ model User {
   about    String
   accounts Json[]
   password String
+  pronouns String[]
+  location String @default("")
   posts    Post[]
 }
 

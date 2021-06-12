@@ -9,7 +9,7 @@ import Button from './button';
 
 export default function Navbar(): JSX.Element {
   return (
-    <nav className="grid grid-cols-2 py-2 px-6 items-center">
+    <nav className="bg-black text-white grid grid-cols-2 py-2.5 px-6 items-center">
       <div className="flex items-center gap-3">
         <Link href="/">
           <a
@@ -19,16 +19,25 @@ export default function Navbar(): JSX.Element {
             Lynnx
           </a>
         </Link>
+        <Link href="/">
+          <a className="cursor-pointer transition delay-250 hover:text-emerald-500 hover:underline">
+            Home
+          </a>
+        </Link>
+        <Link href="/a/about">
+          <a className="cursor-pointer transition delay-250 hover:text-emerald-500 hover:underline">
+            About
+          </a>
+        </Link>
       </div>
       <div className="flex justify-end gap-5 items-center">
-        <a
-          href="/"
-          className="cursor-pointer transition delay-250 hover:text-emerald-500 hover:underline"
-        >
-          Sign In
-        </a>
+        <Link href="/">
+          <a className="cursor-pointer transition delay-250 hover:text-emerald-500 hover:underline">
+            Sign In
+          </a>
+        </Link>
         <Button href="/">
-          Register an Account
+          Register
         </Button>
       </div>
     </nav>

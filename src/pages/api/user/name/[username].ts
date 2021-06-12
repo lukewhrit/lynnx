@@ -31,7 +31,10 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
             joinedOn: user.joinedOn,
             nickname: user.nickname,
             about: user.about,
+            pronouns: user.pronouns,
+            location: user.location,
             accounts: user.accounts,
+            posts: user.posts,
           },
         });
       } else {

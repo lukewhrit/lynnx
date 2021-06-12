@@ -4,22 +4,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { Prisma } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../lib/prisma';
 
-interface Data {
-  id: string;
-  email: string;
-  name: string;
-  joinedOn: Date;
-  nickname: string;
-  about: string;
-  accounts: Prisma.JsonValue;
-  password: string;
-}
-
-export default async (req: NextApiRequest, res: NextApiResponse<Data>): Promise<void> => {
+export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   if (req.method === 'GET') {
     const user = await prisma.user.findFirst({
       where: {
@@ -30,7 +18,10 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>): Promise<
       },
     });
 
-    res.status(200).json({ ...user });
+    res.status(200).json({
+      type: 'user',
+      payload: user,
+    });
   } else {
     res.status(400).end();
   }

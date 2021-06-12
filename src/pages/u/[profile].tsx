@@ -4,16 +4,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import Image from 'next/image';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import type { GetServerSideProps } from 'next';
+import Image from 'next/image';
 import Layout from '../../components/layout';
-import platforms from '../../lib/platforms';
-import Icon from '../../components/icon';
 import fetcher from '../../lib/fetcher';
 import { Response, User } from '../../lib/domain';
+import Button from '../../components/button';
 
+// Fetch user information from local API routes on server-side
 export const getServerSideProps: GetServerSideProps<{
   user: Response<User>
 }> = async ({ req, params }) => {
@@ -36,53 +36,34 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
 
   return (
     <Layout>
-      <div>
-        <Image
-          src="https://pbs.twimg.com/profile_banners/1215546417936314369/1607498953/1500x500"
-          layout="responsive"
-          width={1300}
-          height={400}
-        />
-        <div className="flex justify-center md:pl-8 md:justify-left">
-          <section className="relative mt-3 xs:bottom-8 max-w-sm md:max-w-lg">
-            <div className="flex gap-4 mb-3 bg-black py-2.5 px-3 shadow items-center">
-              <Image
-                src="https://pbs.twimg.com/profile_images/1375990292961198081/3loVJ9l4_400x400.jpg"
-                width={75}
-                height={75}
-                className="rounded-full"
-              />
-              <div>
-                <h1 className="text-white font-semibold text-xl md:text-2xl">
-                  {data.payload.nickname}
-                </h1>
-                <span className="text-gray-200 text-sm">
-                  <code>
-                    {data.payload.tagline || `lynnx.me/u/${data.payload.name}` }
-                  </code>
-                </span>
+      <main id="profile">
+        <section id="banner">
+          <div className="relative">
+            <div className="h-32 bg-gray-800 w-full" />
+            <div className="px-20 sm:px-4">
+              <div className="flex justify-between">
+                <Image
+                  id="avatar"
+                  className="rounded-full border-4 border-red-600"
+                  src="https://pbs.twimg.com/profile_images/1385816384580558848/LJFOGqvj_400x400.jpg"
+                  alt="Avatar"
+                  layout="fixed"
+                  width="115"
+                  height="115"
+                />
+                <div>
+                  <Button href="/">
+                    Follow
+                  </Button>
+                </div>
               </div>
             </div>
-            <div>
-              <p>{data.payload.about}</p>
-              <div className="flex">
-                {data.payload.accounts.map(({ platform, account }) => {
-                  const { icon, url } = platforms[platform.toLowerCase()];
-
-                  return (
-                    <div className="mt-2" key={platform}>
-                      <Icon
-                        icon={icon}
-                        href={url(account)}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+          </div>
+        </section>
+        <section id="main" className="flex justify-center py-10 px-20">
+          User Information (Name, About, Socials, etc.) | Blog Post Feed
+        </section>
+      </main>
     </Layout>
   );
 }
