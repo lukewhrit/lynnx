@@ -8,14 +8,11 @@ import Button from '../components/button';
 import CallToAction from '../components/callToAction';
 import Layout from '../components/layout';
 
-const features: {
-  title: string;
-  blurb: string;
-}[] = [
+const features = [
   {
     title: '💡 Share your link anywhere.',
-    blurb: `Since Lynnx is just a website, and your profile is just a page you can share the link to
-    your profile anywhere, allowing your profile to be truly universal.`,
+    blurb: `Since Lynnx is just a website, and your profile is just a page on it you can share the
+    link to your profile anywhere, allowing your profile to be truly universal.`,
   },
   {
     title: '🤩 Blog posts, account links, and more!',
@@ -28,7 +25,7 @@ const features: {
     experience on their profile. You can change colors, layout, images, and more.`,
   },
   {
-    title: '🥳 100% Free, open-source, and private.',
+    title: '🥳 100% free, open-source, and private.',
     blurb: `We built Lynnx using open-source, privacy-respecting technologies allowing us to keep
     the app totally free and open-source.`,
   },
@@ -58,7 +55,7 @@ export default function Home(): JSX.Element {
           <div className="h-1/2">
             {/* @todo Use Next.js <Image> component here */}
             <img
-              src="https://i.imgur.com/Ngw7Upd.png"
+              src="https://i.imgur.com/p1Ry5ek.png"
               alt=""
             />
           </div>

@@ -9,7 +9,7 @@ import Link from 'next/link';
 const links = [
   [
     { label: 'About Lynnx', href: '/a/about', local: true },
-    { label: 'Blog', href: '/a/blog', local: true },
+    { label: 'Blog', href: '/u/lynnx', local: true },
     { label: 'Help Center', href: '/a/faq', local: true },
   ],
   [
@@ -51,7 +51,7 @@ export default function Footer(): JSX.Element {
             {' '}
             {new Date().getFullYear()}
             {' '}
-            Luke W. All Rights Reserved.
+            Ava W. All Rights Reserved.
           </p>
         </section>
       </footer>
