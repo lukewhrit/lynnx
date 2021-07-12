@@ -54,19 +54,23 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
               />
             </div>
             <div>
-              <p className="text-2xl font-bold mb-2">Ava 🏳️‍⚧️</p>
+              <p className="text-2xl font-bold mb-2">{data.payload.nickname}</p>
               <div className="flex items-center gap-3">
                 <span className="flex gap-1 items-center">
                   <AtSymbolIcon className="h-5 w-5" />
-                  avaaxcx
+                  {data.payload.name}
                 </span>
                 <span className="flex gap-1 items-center">
                   <LocationMarkerIcon className="h-5 w-5" />
-                  New York City
+                  {data.payload.location}
                 </span>
                 <span className="flex gap-1 items-center">
                   <CalendarIcon className="h-5 w-5" />
-                  Joined January 2021
+                  Joined
+                  {' '}
+                  {'Feburary' || new Date(data.payload.joinedOn).getUTCMonth()}
+                  {' '}
+                  {new Date(data.payload.joinedOn).getFullYear()}
                 </span>
               </div>
             </div>
@@ -75,16 +79,18 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
           <section id="main" className="grid gap-12 grid-cols-8">
             <div className="col-span-3">
               <section id="about">
-                <p className="text-xl font-bold mb-3">About Ava 🏳️‍⚧️</p>
+                <p className="text-xl font-bold mb-3">
+                  About
+                  {' '}
+                  {data.payload.nickname}
+                </p>
                 <p className="w-5/7">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur libero
-                  at urna blandit, ac cursus urna ornare. Praesent sed turpis nec neque lobortis
-                  pharetra.
+                  {data.payload.about}
                 </p>
               </section>
               <section id="pronouns" className="mt-6 flex justify-between">
                 <p className="font-bold">Pronouns</p>
-                <p>she/her, they/them</p>
+                <p>{data.payload.pronouns.join('/')}</p>
               </section>
               <section id="age" className="mt-2 flex justify-between">
                 <p className="font-bold">Age</p>
