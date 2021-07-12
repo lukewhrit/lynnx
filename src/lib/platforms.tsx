@@ -11,6 +11,7 @@ import FacebookIcon from '../components/icons/facebook';
 import YouTubeIcon from '../components/icons/youtube';
 import InstagramIcon from '../components/icons/instagram';
 import TwitchIcon from '../components/icons/twitch';
+import TraktIcon from '../components/icons/trakt';
 
 interface Platforms {
   [key: string]: {
@@ -64,39 +65,39 @@ const platforms: Platforms = {
     name: 'Twitch',
     color: '#9146ff',
   },
+  trakt: {
+    url: (account) => `https://trakt.tv/${account}`,
+    icon: TraktIcon,
+    name: 'Trakt',
+    color: '#ed2224',
+  },
   // rateyourmusic: {
   //   url: (account) => `https://rateyourmusic.com/~${account}`,
-  //   icon: <></>,
+  //   icon: RateYourMusicIcon,
   //   name: 'RateYourMusic',
-  //   color: '',
+  //   color: '#207bbf',
   // },
   // lastfm: {
   //   url: (account) => `https://last.fm/user/${account}`,
-  //   icon: <></>,
+  //   icon: LastfmIcon,
   //   name: 'Last.fm',
-  //   color: '',
-  // },
-  // trakt: {
-  //   url: (account) => `https://trakt.tv/${account}`,
-  //   icon: <></>,
-  //   name: 'Trakt',
-  //   color: '',
+  //   color: '#f71414',
   // },
   // reddit: {
   //   url: (account) => `https://reddit.com/u/${account}`,
-  //   icon: <></>,
+  //   icon: RedditIcon,
   //   name: 'Reddit',
   //   color: '#ff4500',
   // },
   // tumblr: {
   //   url: (account) => `https://${account}.tumblr.com`,
-  //   icon: <></>,
+  //   icon: TumblrIcon,
   //   name: 'Tumblr',
   //   color: '#36465d',
   // },
   // tiktok: {
   //   url: (account) => `https://tiktok.com/@${account}`,
-  //   icon: <></>,
+  //   icon: TikTokIcon,
   //   name: 'TikTok',
   //   color: '#000000',
   // },

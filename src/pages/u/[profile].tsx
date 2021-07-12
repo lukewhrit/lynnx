@@ -109,7 +109,10 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
                   return (
                     <div key={account.platform.toLowerCase()}>
                       <a href={platform.url(account.account)} target="_blank" rel="noreferrer noopener">
-                        <div className={`w-8 h-8 rounded-full p-2 bg-[${platform.color}] cursor-pointer`}>
+                        <div
+                          className="w-8 h-8 rounded-full p-2 cursor-pointer"
+                          style={{ backgroundColor: platform.color }}
+                        >
                           <platform.icon />
                         </div>
                       </a>
