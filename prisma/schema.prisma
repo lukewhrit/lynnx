@@ -8,17 +8,20 @@ datasource db {
 }
 
 model User {
-  id       String   @id @default(uuid())
-  email    String   @unique
-  name     String   @unique
-  joinedOn DateTime @default(now())
-  nickname String
-  about    String
-  accounts Json[]
-  password String
-  pronouns String[]
-  location String @default("")
-  posts    Post[]
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String   @unique
+  joinedOn  DateTime @default(now())
+  nickname  String
+  about     String
+  accounts  Json[]
+  password  String
+  pronouns  String[]
+  sexuality String   @default("")
+  gender    String   @default("")
+  age       Int      @default(0)
+  location  String   @default("")
+  posts     Post[]
 }
 
 model Post {

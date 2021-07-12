@@ -29,6 +29,9 @@ export interface User {
     platform: string;
   }[] | Prisma.JsonValue;
   pronouns: string[];
+  sexuality: string;
+  gender: string;
+  age: number;
   location: string;
   posts: Post[];
   password?: string;

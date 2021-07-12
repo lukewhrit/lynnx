@@ -94,15 +94,15 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
               </section>
               <section id="age" className="mt-2 flex justify-between">
                 <p className="font-bold">Age</p>
-                <p>15</p>
+                <p>{data.payload.age.toString()}</p>
               </section>
               <section id="gender" className="mt-2 flex justify-between">
                 <p className="font-bold">Gender</p>
-                <p>Genderfluid</p>
+                <p>{data.payload.gender}</p>
               </section>
               <section id="sexuality" className="mt-2 flex justify-between">
                 <p className="font-bold">Sexuality</p>
-                <p>Bisexual</p>
+                <p>{data.payload.sexuality}</p>
               </section>
               <section id="socials" className="mt-6 flex gap-2 justify-center items-center">
                 {/* add trakt, last.fm, rym */}
