@@ -27,7 +27,7 @@ export interface User {
   accounts: {
     account: string;
     platform: string;
-  }[] | Prisma.JsonValue;
+  }[] | Prisma.JsonArray;
   pronouns: string[];
   sexuality: string;
   gender: string;

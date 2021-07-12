@@ -12,9 +12,7 @@ import { AtSymbolIcon, CalendarIcon, LocationMarkerIcon } from '@heroicons/react
 import Layout from '../../components/layout';
 import fetcher from '../../lib/fetcher';
 import { Response, User } from '../../lib/domain';
-import TwitterIcon from '../../components/icons/twitter';
-import GithubIcon from '../../components/icons/github';
-import LetterboxdIcon from '../../components/icons/letterboxd';
+import platforms from '../../lib/platforms';
 
 // Fetch user information from local API routes on server-side
 export const getServerSideProps: GetServerSideProps<{
@@ -105,16 +103,19 @@ export default function Profile({ user }: { user: Response<User> }): JSX.Element
                 <p>{data.payload.sexuality}</p>
               </section>
               <section id="socials" className="mt-6 flex gap-2 justify-center items-center">
-                {/* add trakt, last.fm, rym */}
-                <div className="w-8 h-8 rounded-full p-2 bg-[#1da1f2] cursor-pointer">
-                  <TwitterIcon />
-                </div>
-                <div className="w-8 h-8 rounded-full p-2 bg-[#00e054] cursor-pointer">
-                  <LetterboxdIcon />
-                </div>
-                <div className="w-8 h-8 rounded-full p-2 bg-[#333333] cursor-pointer">
-                  <GithubIcon />
-                </div>
+                {data.payload.accounts.map((account) => {
+                  const platform = platforms[account.platform.toLowerCase()];
+
+                  return (
+                    <div key={account.platform.toLowerCase()}>
+                      <a href={platform.url(account.account)} target="_blank" rel="noreferrer noopener">
+                        <div className={`w-8 h-8 rounded-full p-2 bg-[${platform.color}] cursor-pointer`}>
+                          <platform.icon />
+                        </div>
+                      </a>
+                    </div>
+                  );
+                })}
               </section>
             </div>
             <div className="col-span-5">

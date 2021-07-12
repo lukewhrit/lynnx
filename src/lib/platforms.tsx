@@ -15,7 +15,7 @@ import TwitchIcon from '../components/icons/twitch';
 interface Platforms {
   [key: string]: {
     url: (account: string) => string;
-    icon: JSX.Element;
+    icon: () => JSX.Element;
     name: string;
     color: string;
   };
@@ -24,64 +24,82 @@ interface Platforms {
 const platforms: Platforms = {
   twitter: {
     url: (account) => `https://twitter.com/${account}`,
-    icon: <TwitterIcon />,
+    icon: TwitterIcon,
     name: 'Twitter',
-    color: '#1DA1F2',
+    color: '#1da1f2',
   },
   letterboxd: {
     url: (account) => `https://letterboxd.com/${account}`,
-    icon: <LetterboxdIcon />,
+    icon: LetterboxdIcon,
     name: 'Letterboxd',
-    color: '#00D735',
+    color: '#00e054',
   },
   github: {
     url: (account) => `https://github.com/${account}`,
-    icon: <GithubIcon />,
+    icon: GithubIcon,
     name: 'GitHub',
-    color: '#181717',
+    color: '#333333',
   },
   facebook: {
     url: (account) => `https://facebook.com/${account}`,
-    icon: <FacebookIcon />,
+    icon: FacebookIcon,
     name: 'Facebook',
-    color: '#1877F2',
+    color: '#1877f2',
   },
   youtube: {
     url: (account) => `https://youtube.com/${account}`,
-    icon: <YouTubeIcon />,
+    icon: YouTubeIcon,
     name: 'YouTube',
-    color: '#FF0000',
+    color: '#ff0000',
   },
   instagram: {
     url: (account) => `https://instagram.com/${account}`,
-    icon: <InstagramIcon />,
+    icon: InstagramIcon,
     name: 'Instagram',
-    color: '#E4405F',
+    color: '#e4405f',
   },
   twitch: {
     url: (account) => `https://twitch.tv/${account}`,
-    icon: <TwitchIcon />,
+    icon: TwitchIcon,
     name: 'Twitch',
-    color: '#9146FF',
+    color: '#9146ff',
   },
-  reddit: {
-    url: (account) => `https://reddit.com/u/${account}`,
-    icon: <></>,
-    name: 'Reddit',
-    color: '#FF4500',
-  },
-  tumblr: {
-    url: (account) => `https://${account}.tumblr.com`,
-    icon: <></>,
-    name: 'Tumblr',
-    color: '#36465D',
-  },
-  tiktok: {
-    url: (account) => `https://tiktok.com/@${account}`,
-    icon: <></>,
-    name: 'TikTok',
-    color: '#000000',
-  },
+  // rateyourmusic: {
+  //   url: (account) => `https://rateyourmusic.com/~${account}`,
+  //   icon: <></>,
+  //   name: 'RateYourMusic',
+  //   color: '',
+  // },
+  // lastfm: {
+  //   url: (account) => `https://last.fm/user/${account}`,
+  //   icon: <></>,
+  //   name: 'Last.fm',
+  //   color: '',
+  // },
+  // trakt: {
+  //   url: (account) => `https://trakt.tv/${account}`,
+  //   icon: <></>,
+  //   name: 'Trakt',
+  //   color: '',
+  // },
+  // reddit: {
+  //   url: (account) => `https://reddit.com/u/${account}`,
+  //   icon: <></>,
+  //   name: 'Reddit',
+  //   color: '#ff4500',
+  // },
+  // tumblr: {
+  //   url: (account) => `https://${account}.tumblr.com`,
+  //   icon: <></>,
+  //   name: 'Tumblr',
+  //   color: '#36465d',
+  // },
+  // tiktok: {
+  //   url: (account) => `https://tiktok.com/@${account}`,
+  //   icon: <></>,
+  //   name: 'TikTok',
+  //   color: '#000000',
+  // },
 };
 
 export default platforms;
